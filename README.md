@@ -1,5 +1,11 @@
 # Suited — "Signal" scroll animation: Webflow embed handoff
 
+> **Provenance.** This repository is a vendored copy of `h-emiliia/suited-embed`, taken at
+> upstream commit `66ea8dd82729458218e523ed262aa248ff4d24b0` on 2026-07-30. Full upstream
+> commit history and tags (`v1`–`v12`) are preserved as-is; original authorship is retained
+> in the git metadata. This copy is the source of truth for what wellsuited.com loads in
+> production. Upstream is not a dependency and is not tracked as a remote.
+
 A scroll-scrubbed Chladni particle animation with 3 morphing states ("Firm / Industry /
 Individual signal"). It's **one JS file** plus a small DOM structure built in Webflow.
 All text stays as **native, editable Webflow elements** — the script only injects a
@@ -7,21 +13,28 @@ transparent `<canvas>`, scrubs the morph on scroll, toggles an `is-active` class
 current label, and crossfades the descriptions.
 
 ## Everything you need
-- **Embed kit (code + this doc):** https://github.com/h-emiliia/suited-embed
-- **Live reference (target behaviour):** https://suited-signal.vercel.app
+- **Embed kit (code + this doc):** https://github.com/samfogarty5/suited-embed
 - **Script (CDN, production-ready):**
-  `https://cdn.jsdelivr.net/gh/h-emiliia/suited-embed@v10/embed.js`
+  `https://cdn.jsdelivr.net/gh/samfogarty5/suited-embed@v13/embed.js`
 
 ## Add the script
 
 In Webflow → **Page Settings → Custom Code → Before `</body>`**:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/h-emiliia/suited-embed@v1/embed.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/samfogarty5/suited-embed@v13/embed.js"
+        integrity="sha384-bRcbEkLO/vZZg0c5ak4h3Fr8sh9nq7Nn58m2VcPuYMbGFxuuVabnNTRbBt8o1JAo"
+        crossorigin="anonymous"
+        defer></script>
 ```
 
-> Pinned to `@v10` (a git tag) so the URL is stable and cache-safe. Changes ship by pushing
-> a new tag and bumping the number.
+> Pinned to `@v13` (a git tag), never `@main` — a branch ref lets any push to this repo go
+> live automatically, which is exactly the exposure this copy exists to remove. The
+> `integrity` hash means the browser refuses the file if its bytes ever change.
+>
+> To ship a change: push a new tag, recompute the hash with
+> `shasum -b -a 384 embed.js | cut -d' ' -f1 | xxd -r -p | base64`, and update both the tag
+> and the hash in the Webflow embed.
 
 ## 1. Structure to build in the Designer
 
