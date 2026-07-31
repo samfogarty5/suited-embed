@@ -13,16 +13,16 @@ transparent `<canvas>`, scrubs the morph on scroll, toggles an `is-active` class
 current label, and crossfades the descriptions.
 
 ## Everything you need
-- **Embed kit (code + this doc):** https://github.com/samfogarty5/suited-embed
+- **Embed kit (code + this doc):** https://github.com/TitanHire/suited-embed
 - **Script (CDN, production-ready):**
-  `https://cdn.jsdelivr.net/gh/samfogarty5/suited-embed@v13/embed.js`
+  `https://cdn.jsdelivr.net/gh/TitanHire/suited-embed@v13/embed.js`
 
 ## Add the script
 
 In Webflow → **Page Settings → Custom Code → Before `</body>`**:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/samfogarty5/suited-embed@v13/embed.js"
+<script src="https://cdn.jsdelivr.net/gh/TitanHire/suited-embed@v13/embed.js"
         integrity="sha384-bRcbEkLO/vZZg0c5ak4h3Fr8sh9nq7Nn58m2VcPuYMbGFxuuVabnNTRbBt8o1JAo"
         crossorigin="anonymous"></script>
 ```
