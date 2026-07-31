@@ -24,9 +24,12 @@ In Webflow → **Page Settings → Custom Code → Before `</body>`**:
 ```html
 <script src="https://cdn.jsdelivr.net/gh/samfogarty5/suited-embed@v13/embed.js"
         integrity="sha384-bRcbEkLO/vZZg0c5ak4h3Fr8sh9nq7Nn58m2VcPuYMbGFxuuVabnNTRbBt8o1JAo"
-        crossorigin="anonymous"
-        defer></script>
+        crossorigin="anonymous"></script>
 ```
+
+> **No `defer`.** On the live page this tag sits between the Lenis CDN script and an inline
+> `DOMContentLoaded` initializer. Adding `defer` would push execution past that initializer
+> and change boot order. Keep the tag bare and keep its position.
 
 > Pinned to `@v13` (a git tag), never `@main` — a branch ref lets any push to this repo go
 > live automatically, which is exactly the exposure this copy exists to remove. The
